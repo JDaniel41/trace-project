@@ -5,17 +5,20 @@ import AreaChooser from "./components/AreaChooser";
 
 function App() {
     const [covidApiResponse, setCovidApiResponse] = useState(null);
-    const [county, setCounty] = useState(null);
-    const [covidState, setCovidState] = useState(null);
+    const [chosenCountyData, setChosenCountyData] = useState(null);
 
-    function setCountyAndState(newCounty, newState) {
-        setCounty(newCounty);
-        setCovidState(newState);
+    function setCountyAndState(countyName, stateName) {
+        setChosenCountyData(
+            covidApiResponse.find(
+                (result) =>
+                    result.county === countyName && result.state === stateName
+            )
+        );
     }
 
     function renderAreaChooser() {
         const listOfCounties = covidApiResponse.map(
-            (result) => result.county + ", " + result.state
+            (result) => result.county + " (" + result.state + ")"
         );
         let listOfStates = [];
 
@@ -50,7 +53,14 @@ function App() {
     if (covidApiResponse == null) {
         return <div>Loading...</div>;
     } else {
-        return <div>{renderAreaChooser()}</div>;
+        return (
+            <div>
+                {renderAreaChooser()}
+                <div>
+                    <MaskGuidanceCard countyData={chosenCountyData} />
+                </div>
+            </div>
+        );
     }
 }
 
