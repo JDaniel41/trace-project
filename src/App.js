@@ -47,7 +47,7 @@ function App() {
 
         return (
             <div className="flex justify-center">
-                <div className="w-1/3 ">
+                <div className="lg:w-1/3 w-full">
                     <MaskGuidanceCard countyData={chosenCountyData} />
                     <VaccinationsCard countyData={chosenCountyData} />
                     <CaseMetrics countyData={chosenCountyData} />
