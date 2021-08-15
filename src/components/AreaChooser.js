@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AreaChooser({ stateList, countyList, updateAreaCallback }) {
     const [stateName, setStateName] = useState(null);
@@ -19,8 +19,17 @@ function AreaChooser({ stateList, countyList, updateAreaCallback }) {
         setCountiesDisplayed(counties);
     }
 
+    useEffect(() => {
+        updateCountyList(stateList[0]);
+        updateAreaCallback(countiesDisplayed[0], stateList[0]);
+    }, []);
+
+    useEffect(() => {
+        updateAreaCallback(countiesDisplayed[0], stateName);
+    }, [stateName]);
+
     return (
-        <div>
+        <div className="h-10 justify-center flex">
             <select
                 name="states"
                 onChange={(e) => updateCountyList(e.target.value)}
