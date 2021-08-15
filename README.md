@@ -1,5 +1,3 @@
-# Ideas
+# Trace Camp Final Project: COVID Dashboard
 
-## Idea 1: COVID Dashboard
-
-API Key: c76bf315c59f4583be354544cba8c6a6
+This website uses data from the COVID Act Now API to display relavent stats for counties and states in the USA.
