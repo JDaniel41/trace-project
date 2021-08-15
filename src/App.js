@@ -73,6 +73,22 @@ function App() {
             <div className="bg-gray-100 h-screen">
                 {renderAreaChooser()}
                 {renderCards()}
+                <div className="absolute bottom-0 w-screen pb-5">
+                    <h1 className="text-center">
+                        This data is provided from the{" "}
+                        <a
+                            className="underline"
+                            href="https://covidactnow.org/"
+                        >
+                            COVID Act Now API
+                        </a>
+                        .
+                    </h1>
+                    <h1 className="text-center">
+                        This page was developed by Jonathan Daniel as the final
+                        project of Trace Camp Summer 2021!
+                    </h1>
+                </div>
             </div>
         );
     }
